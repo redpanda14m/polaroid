@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vertical Long Polaroid Camera Frames - Combined Download</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0e6f7;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    min-height: 100vh;
+  }
+  .frame {
+    background: lavender;
+    border: 12px solid #b497bd;
+    border-bottom: 60px solid #b497bd;
+    width: 220px;
+    height: 420px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 12px 24px;
+  }
+  .frame h3 {
+    margin: 0 0 14px 0;
+    font-weight: 700;
+    color: #5a3e6f;
+    font-size: 1.2rem;
+    user-select: none;
+  }
+  video, canvas {
+    width: 196px;
+    height: 280px;
+    border-radius: 10px;
+    background: #ddd;
+    object-fit: cover;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+  }
+  .controls {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+  }
+  button, select {
+    background: #b497bd;
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    user-select: none;
+  }
+  button:disabled {
+    background: #d3c6d9;
+    cursor: not-allowed;
+  }
+  select {
+    cursor: pointer;
+  }
+  .background-picker {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .bg-swatch {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    box-sizing: border-box;
+  }
+  .bg-swatch.selected {
+    border-color: #5a3e6f;
+  }
+  #combined-download {
+    margin-top: 30px;
+    background: #7a5a9e;
+    width: 240px;
+    font-size: 1.1rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="frame" id="frame1">
+  <h3>Polaroid Frame 1</h3>
+  <video autoplay muted playsinline></video>
+  <canvas></canvas>
+  <div class="controls">
+    <button class="capture-btn">Capture</button>
+    <button class="download-btn" disabled>Download</button>
+    <select class="filter-select" title="Choose effect">
+      <option value="none">No Effect</option>
+      <option value="grayscale(100%)">Grayscale</option>
+      <option value="sepia(100%)">Sepia</option>
+      <option value="invert(100%)">Invert</option>
+      <option value="blur(3px)">Blur</option>
+      <option value="contrast(150%)">High Contrast</option>
+      <option value="brightness(150%)">Brighten</option>
+    </select>
+  </div>
+  <div class="background-picker" title="Choose background color">
+    <div class="bg-swatch selected" data-color="#ffffff" style="background:#fff;"></div>
+    <div class="bg-swatch" data-color="#fce4ec" style="background:#fce4ec;"></div>
+    <div class="bg-swatch" data-color="#e8f5e9" style="background:#e8f5e9;"></div>
+    <div class="bg-swatch" data-color="#e3f2fd" style="background:#e3f2fd;"></div>
+  </div>
+</div>
+
+<div class="frame" id="frame2">
+  <h3>Polaroid Frame 2</h3>
+  <video autoplay muted playsinline></video>
+  <canvas></canvas>
+  <div class="controls">
+    <button class="capture-btn">Capture</button>
+    <button class="download-btn" disabled>Download</button>
+    <select class="filter-select" title="Choose effect">
+      <option value="none">No Effect</option>
+      <option value="grayscale(100%)">Grayscale</option>
+      <option value="sepia(100%)">Sepia</option>
+      <option value="invert(100%)">Invert</option>
+      <option value="blur(3px)">Blur</option>
+      <option value="contrast(150%)">High Contrast</option>
+      <option value="brightness(150%)">Brighten</option>
+    </select>
+  </div>
+  <div class="background-picker" title="Choose background color">
+    <div class="bg-swatch selected" data-color="#ffffff" style="background:#fff;"></div>
+    <div class="bg-swatch" data-color="#fce4ec" style="background:#fce4ec;"></div>
+    <div class="bg-swatch" data-color="#e8f5e9" style="background:#e8f5e9;"></div>
+    <div class="bg-swatch" data-color="#e3f2fd" style="background:#e3f2fd;"></div>
+  </div>
+</div>
+
+<div class="frame" id="frame3">
+  <h3>Polaroid Frame 3</h3>
+  <video autoplay muted playsinline></video>
+  <canvas></canvas>
+  <div class="controls">
+    <button class="capture-btn">Capture</button>
+    <button class="download-btn" disabled>Download</button>
+    <select class="filter-select" title="Choose effect">
+      <option value="none">No Effect</option>
+      <option value="grayscale(100%)">Grayscale</option>
+      <option value="sepia(100%)">Sepia</option>
+      <option value="invert(100%)">Invert</option>
+      <option value="blur(3px)">Blur</option>
+      <option value="contrast(150%)">High Contrast</option>
+      <option value="brightness(150%)">Brighten</option>
+    </select>
+  </div>
+  <div class="background-picker" title="Choose background color">
+    <div class="bg-swatch selected" data-color="#ffffff" style="background:#fff;"></div>
+    <div class="bg-swatch" data-color="#fce4ec" style="background:#fce4ec;"></div>
+    <div class="bg-swatch" data-color="#e8f5e9" style="background:#e8f5e9;"></div>
+    <div class="bg-swatch" data-color="#e3f2fd" style="background:#e3f2fd;"></div>
+  </div>
+</div>
+
+<button id="combined-download" disabled>Download Combined Polaroid</button>
+
+<script>
+  const frames = document.querySelectorAll('.frame');
+  const combinedDownloadBtn = document.getElementById('combined-download');
+
+  frames.forEach(frame => {
+    const video = frame.querySelector('video');
+    const canvas = frame.querySelector('canvas');
+    const captureBtn = frame.querySelector('.capture-btn');
+    const downloadBtn = frame.querySelector('.download-btn');
+    const filterSelect = frame.querySelector('.filter-select');
+    const bgPicker = frame.querySelector('.background-picker');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = 196;
+    canvas.height = 280;
+
+    // Start webcam stream for this frame
+    navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+      .then(stream => {
+        video.srcObject = stream;
+      })
+      .catch(err => {
+        console.error('Error accessing camera: ', err);
+        video.style.background = '#ccc';
+      });
+
+    // Capture photo
+    captureBtn.addEventListener('click', () => {
+      // Fill background first
+      ctx.fillStyle = frame.style.backgroundColor || '#fff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Apply filter and draw video frame
+      ctx.filter = filterSelect.value;
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      downloadBtn.disabled = false;
+      checkAllCaptured();
+    });
+
+    // Download individual photo
+    downloadBtn.addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.download = `photo-${frame.id}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+
+    // Change filter live on video preview
+    filterSelect.addEventListener('change', () => {
+      video.style.filter = filterSelect.value;
+    });
+
+    // Background color picker
+    bgPicker.querySelectorAll('.bg-swatch').forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        bgPicker.querySelectorAll('.bg-swatch').forEach(s => s.classList.remove('selected'));
+        swatch.classList.add('selected');
+        frame.style.backgroundColor = swatch.dataset.color;
+      });
+    });
+
+    // Initialize background color
+    frame.style.backgroundColor = bgPicker.querySelector('.bg-swatch.selected').dataset.color;
+  });
+
+  // Enable combined download only if all frames have captured images
+  function checkAllCaptured() {
+    const allCaptured = Array.from(frames).every(frame => {
+      const downloadBtn = frame.querySelector('.download-btn');
+      return !downloadBtn.disabled;
+    });
+    combinedDownloadBtn.disabled = !allCaptured;
+  }
+
+  // Combined download button handler
+  combinedDownloadBtn.addEventListener('click', () => {
+    const combinedCanvas = document.createElement('canvas');
+    const width = 220; // frame width including border approx
+    const height = 420 * frames.length; // total height for all frames stacked
+
+    combinedCanvas.width = width;
+    combinedCanvas.height = height;
+    const ctx = combinedCanvas.getContext('2d');
+
+    // Fill background with lavender for entire combined image
+    ctx.fillStyle = '#E6E0F8'; // lighter lavender background
+    ctx.fillRect(0, 0, width, height);
+
+    frames.forEach((frame, index) => {
+      // Draw polaroid frame background with border
+      const borderColor = '#b497bd';
+      const frameX = 10;
+      const frameY = index * 420 + 10;
+      const frameWidth = 200;
+      const frameHeight = 400;
+      const borderThickness = 12;
+      const bottomBorderThickness = 60;
+
+      // Draw outer lavender rectangle (frame background)
+      ctx.fillStyle = 'lavender';
+      ctx.fillRect(frameX, frameY, frameWidth, frameHeight);
+
+      // Draw border
+      ctx.lineWidth = borderThickness;
+      ctx.strokeStyle = borderColor;
+      ctx.strokeRect(frameX, frameY, frameWidth, frameHeight - bottomBorderThickness);
+
+      // Draw thick bottom border
+      ctx.fillStyle = borderColor;
+      ctx.fillRect(frameX, frameY + frameHeight - bottomBorderThickness, frameWidth, bottomBorderThickness);
+
+      // Draw captured photo from canvas inside frame
+      const photoCanvas = frame.querySelector('canvas');
+      if (photoCanvas) {
+        // Draw white background behind photo area
+        ctx.fillStyle = frame.style.backgroundColor || '#fff';
+        ctx.fillRect(frameX + borderThickness, frameY + borderThickness, frameWidth - borderThickness * 2, frameHeight - bottomBorderThickness - borderThickness * 2);
+
+        // Draw the photo
+        ctx.drawImage(photoCanvas, frameX + borderThickness, frameY + borderThickness, frameWidth - borderThickness * 2, frameHeight - bottomBorderThickness - borderThickness * 2);
+      }
+    });
+
+    // Trigger download of combined image
+    const link = document.createElement('a');
+    link.download = 'combined-polaroid.png';
+    link.href = combinedCanvas.toDataURL('image/png');
+    link.click();
+  });
+</script>
+
+</body>
+</html>
+```
